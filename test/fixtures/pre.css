@@ -6,6 +6,23 @@
   font-style: normal;
 }
 
-body {
-	background-image: url('a.png');
+.cachified-relative {
+  background-image: url('/image.png');
+}
+
+.cachified-absolute {
+  background-image: url('image.png');
+}
+
+.not-cachified-no-such-file {
+  background-image: url('missing.png');
+}
+
+.not-cachified-not-local {
+  background-image: url('//localhost/image.png');
+  background-image: url('http://localhost/image.png');
+}
+
+.not-cachified-not-in-match {
+  background-image: url('image.tiff');
 }

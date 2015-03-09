@@ -22,7 +22,9 @@ describe('postcss-cachify', function () {
     it('process and fix URL declarations', function () {
         var pre = loadCss('fixtures/pre.css');
         var post = loadCss('fixtures/post.css');
-        test(pre, post);
+        test(pre, post, {
+            basePath: __dirname + '/fixtures'
+        });
     });
 
 });
