@@ -10,7 +10,7 @@ var test = function (input, output, opts) {
 };
 
 function loadCss(name) {
-	return fs.readFileSync(resolve(__dirname, name), 'utf8');
+    return fs.readFileSync(resolve(__dirname, name), 'utf8');
 }
 
 describe('postcss-cachify', function () {
@@ -20,8 +20,8 @@ describe('postcss-cachify', function () {
     });
 
     it('process and fix URL declarations', function () {
-    	var pre = loadCss('fixtures/pre.css');
-    	var post = loadCss('fixtures/post.css');
+        var pre = loadCss('fixtures/pre.css');
+        var post = loadCss('fixtures/post.css');
         test(pre, post);
     });
 

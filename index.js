@@ -6,18 +6,14 @@ module.exports = function (opts) {
     // Work with options here
 
     return function (css) {
-
-	    css.eachDecl(function(decl) {
-	      if (!decl.value) {
-	        return;
-	      }
-
-	      if (decl.value.indexOf('url(') > -1) {
-	        cachify(decl, opts);
-	      }
-	    });
+        css.replaceValues(/url\(.+\)/, {
+            fast: 'url('
+        }, function(v) {
+            return cachify(v, opts);
+        });
     };
 };
+
 module.exports.postcss = function (css) {
     return module.exports()(css);
 };
