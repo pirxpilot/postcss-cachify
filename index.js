@@ -1,3 +1,5 @@
+var cachify = require('./lib/cachify');
+
 module.exports = function (opts) {
     opts = opts || {};
 
@@ -5,8 +7,15 @@ module.exports = function (opts) {
 
     return function (css) {
 
-        // Transform CSS AST here
+	    css.eachDecl(function(decl) {
+	      if (!decl.value) {
+	        return;
+	      }
 
+	      if (decl.value.indexOf('url(') > -1) {
+	        cachify(decl, opts);
+	      }
+	    });
     };
 };
 module.exports.postcss = function (css) {
