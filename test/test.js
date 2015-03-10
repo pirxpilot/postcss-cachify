@@ -16,7 +16,9 @@ function loadCss(name) {
 describe('postcss-cachify', function () {
 
     it('leave non urls untouched', function () {
-        test('a{ }', 'a{ }');
+        test('a{ }', 'a{ }', {
+            basePath: __dirname + '/fixtures'
+        });
     });
 
     it('process and fix URL declarations', function () {

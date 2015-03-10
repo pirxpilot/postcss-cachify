@@ -26,11 +26,9 @@ module.exports = function (opts) {
     opts.convertFn = cachify.cachify;
 
     return function (css) {
-        css.replaceValues(/url\(.+\)/, {
+        css.replaceValues(/url\((['"])(.+?)['"]\)/gi, {
             fast: 'url('
-        }, function(v) {
-            return cachifyUrl(v, opts);
-        });
+        }, cachifyUrl.bind(null, opts));
     };
 };
 

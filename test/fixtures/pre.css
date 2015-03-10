@@ -1,7 +1,10 @@
 @font-face {
   font-family: "furkot";
   src: url("fonts/furkot.eot");
-  src: url("fonts/furkot.eot?iefix") format("embedded-opentype"), url("fonts/furkot.woff") format("woff"), url("fonts/furkot.ttf") format("truetype"), url("fonts/furkot.svg#furkot") format("svg");
+  src: url("fonts/furkot.eot?iefix") format("embedded-opentype"),
+    url("fonts/furkot.woff") format("woff"),
+    url("fonts/furkot.ttf") format("truetype"),
+    url("fonts/furkot.svg#furkot") format("svg");
   font-weight: normal;
   font-style: normal;
 }
