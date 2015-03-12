@@ -15,8 +15,6 @@ module.exports = function (opts) {
         opts.baseUrl += '/';
     }
 
-    opts.match = opts.match || /\.(svg|eot|woff|ttf|png|gif|jpg)$/;
-
     cachify.init(opts.basePath, {
         match: opts.match
     });

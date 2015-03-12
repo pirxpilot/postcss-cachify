@@ -15,7 +15,7 @@
     "url": "https://github.com/code42day/postcss-cachify.git"
   },
   "dependencies": {
-    "connect-cachify-static": "^1.1.0",
+    "connect-cachify-static": "^1.1.1",
     "debug": "^2.1.2",
     "postcss": "^4.0.3"
   },
