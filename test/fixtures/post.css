@@ -17,6 +17,10 @@
   background-image: url('/97ea519347/image.png');
 }
 
+.cachified-no-quotes {
+  background-image: url(/97ea519347/image.png);
+}
+
 .not-cachified-no-such-file {
   background-image: url('missing.png');
 }
