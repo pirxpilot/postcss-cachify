@@ -32,6 +32,7 @@
 - `baseUrl` - defaults to `/` - used to convert relative URLs to absolute URLs
 - `basePath` - location of files that will be cachified - defaults to current working directory
 - `match` - regular expression used to filter out files that will be considered for cachifying - defaults to `/\.(svg|eot|woff|ttf|png|gif|jpg)$/`
+- `format` - `name`, `path` or function converting `path` and `hash` prefix into cachified name - defaults to `path`
 
 ## Usage
 

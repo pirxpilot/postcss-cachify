@@ -16,7 +16,8 @@ module.exports = function (opts) {
     }
 
     cachify.init(opts.basePath, {
-        match: opts.match
+        match: opts.match,
+        format: opts.format
     });
 
     debug('Options: %j', opts);
