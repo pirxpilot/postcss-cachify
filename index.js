@@ -1,10 +1,13 @@
 var cachify = require('connect-cachify-static');
 var path = require('path');
 var debug = require('debug')('postcss:cachify');
+var postcss = require('postcss');
 
 var cachifyUrl = require('./lib/cachify');
 
-module.exports = function (opts) {
+module.exports = postcss.plugin('postcss-cachify', postcssCachify);
+
+function postcssCachify (opts) {
     opts = opts || {};
     opts.baseUrl = opts.baseUrl || '/';
     opts.basePath = opts.basePath ?
@@ -29,8 +32,5 @@ module.exports = function (opts) {
             fast: 'url('
         }, cachifyUrl.bind(null, opts));
     };
-};
+}
 
-module.exports.postcss = function (css) {
-    return module.exports()(css);
-};
