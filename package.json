@@ -20,12 +20,13 @@
     "postcss": "^5.0.0"
   },
   "devDependencies": {
-    "jshint-stylish": "^2.0.0",
+    "chai": "^3.0.0",
+    "gulp": "^3.8.11",
     "gulp-jshint": "^2.0.0",
     "gulp-mocha": "^2.0.0",
-    "mocha": "^2.1.0",
-    "chai": "^3.0.0",
-    "gulp": "^3.8.11"
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.0.0",
+    "mocha": "^2.1.0"
   },
   "scripts": {
     "test": "gulp"
