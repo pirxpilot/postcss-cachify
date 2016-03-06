@@ -7,8 +7,7 @@ var cachifyUrl = require('./lib/cachify');
 
 module.exports = postcss.plugin('postcss-cachify', postcssCachify);
 
-function postcssCachify (opts) {
-    opts = opts || {};
+function init(opts) {
     opts.baseUrl = opts.baseUrl || '/';
     opts.basePath = opts.basePath ?
         path.resolve(opts.basePath) :
@@ -27,10 +26,19 @@ function postcssCachify (opts) {
 
     opts.convertFn = cachify.cachify;
 
+    return opts;
+}
+
+function postcssCachify (opts) {
+    var options;
+
     return function (css) {
+        if (!options) {
+            options = init(opts || {});
+        }
         css.replaceValues(/url\((['"]?)(.+?)['"]?\)/gi, {
             fast: 'url('
-        }, cachifyUrl.bind(null, opts));
+        }, cachifyUrl.bind(null, options));
     };
 }
 
