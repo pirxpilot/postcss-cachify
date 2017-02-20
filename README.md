@@ -1,5 +1,5 @@
-[![Build Status](https://img.shields.io/travis/code42day/postcss-cachify.svg)](http://travis-ci.org/code42day/postcss-cachify)
-[![Dependency Status](https://img.shields.io/gemnasium/code42day/postcss-cachify.svg)](https://gemnasium.com/code42day/postcss-cachify)
+[![Build Status](https://img.shields.io/travis/pirxpilot/postcss-cachify.svg)](http://travis-ci.org/pirxpilot/postcss-cachify)
+[![Dependency Status](https://img.shields.io/gemnasium/pirxpilot/postcss-cachify.svg)](https://gemnasium.com/pirxpilot/postcss-cachify)
 [![NPM version](https://img.shields.io/npm/v/postcss-cachify.svg)](http://badge.fury.io/js/postcss-cachify)
 
 # PostCSS Cachify
@@ -43,4 +43,4 @@ postcss([ require('postcss-cachify') ])
 See [PostCSS] docs for examples for your environment.
 
 [PostCSS]: https://github.com/postcss/postcss
-[connect-cachify-static]: https://github.com/code42day/connect-cachify-static
+[connect-cachify-static]: https://github.com/pirxpilot/connect-cachify-static
