@@ -30,5 +30,9 @@
   },
   "scripts": {
     "test": "gulp"
-  }
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ]
 }
