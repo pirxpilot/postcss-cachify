@@ -1,24 +1,24 @@
 @font-face {
   font-family: "furkot";
-  src: url("/80e61c5583/fonts/furkot.eot");
-  src: url("/80e61c5583/fonts/furkot.eot?iefix") format("embedded-opentype"),
-    url("/10d534b43d/fonts/furkot.woff") format("woff"),
+  src: url("/TuWtVRFKpc/fonts/furkot.eot");
+  src: url("/TuWtVRFKpc/fonts/furkot.eot?iefix") format("embedded-opentype"),
+    url("/1vD9kXxehA/fonts/furkot.woff") format("woff"),
     url("fonts/furkot.ttf") format("truetype"),
-    url("/6ad5b1abea/fonts/furkot.svg#furkot") format("svg");
+    url("/azgENG1Fks/fonts/furkot.svg#furkot") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 .cachified-relative {
-  background-image: url('/97ea519347/image.png');
+  background-image: url('/6W4dVVo5QI/image.png');
 }
 
 .cachified-absolute {
-  background-image: url('/97ea519347/image.png');
+  background-image: url('/6W4dVVo5QI/image.png');
 }
 
 .cachified-no-quotes {
-  background-image: url(/97ea519347/image.png);
+  background-image: url(/6W4dVVo5QI/image.png);
 }
 
 .not-cachified-no-such-file {
