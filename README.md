@@ -1,6 +1,7 @@
-[![Build Status](https://img.shields.io/travis/pirxpilot/postcss-cachify.svg)](http://travis-ci.org/pirxpilot/postcss-cachify)
-[![Dependency Status](https://img.shields.io/gemnasium/pirxpilot/postcss-cachify.svg)](https://gemnasium.com/pirxpilot/postcss-cachify)
-[![NPM version](https://img.shields.io/npm/v/postcss-cachify.svg)](http://badge.fury.io/js/postcss-cachify)
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][deps-image]][deps-url]
+[![Dev Dependency Status][deps-dev-image]][deps-dev-url]
 
 # PostCSS Cachify
 
@@ -37,10 +38,22 @@
 ## Usage
 
 ```js
-postcss([ require('postcss-cachify') ])
+postcss([ require('postcss-cachify') ]);
 ```
 
 See [PostCSS] docs for examples for your environment.
 
 [PostCSS]: https://github.com/postcss/postcss
 [connect-cachify-static]: https://github.com/pirxpilot/connect-cachify-static
+
+[npm-image]: https://img.shields.io/npm/v/postcss-cachify.svg
+[npm-url]: https://npmjs.org/package/postcss-cachify
+
+[travis-url]: https://travis-ci.org/pirxpilot/postcss-cachify
+[travis-image]: https://img.shields.io/travis/pirxpilot/postcss-cachify.svg
+
+[deps-image]: https://img.shields.io/david/pirxpilot/postcss-cachify.svg
+[deps-url]: https://david-dm.org/pirxpilot/postcss-cachify
+
+[deps-dev-image]: https://img.shields.io/david/dev/pirxpilot/postcss-cachify.svg
+[deps-dev-url]: https://david-dm.org/pirxpilot/postcss-cachify?type=dev
