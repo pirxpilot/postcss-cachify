@@ -1,4 +1,4 @@
-const cachify = require('connect-cachify-static');
+const { init: makeCachify } = require('connect-cachify-static');
 const path = require('path');
 const debug = require('debug')('postcss:cachify');
 
@@ -6,7 +6,7 @@ const cachifyUrl = require('./lib/cachify');
 
 module.exports = plugin;
 
-function init(opts = {}) {
+async function init(opts) {
   opts.baseUrl = opts.baseUrl || '/';
   opts.basePath = opts.basePath ?
   path.resolve(opts.basePath) :
@@ -16,23 +16,26 @@ function init(opts = {}) {
     opts.baseUrl += '/';
   }
 
-  cachify.init(opts.basePath, {
+  const store = await makeCachify(opts.basePath, {
     match: opts.match,
     format: opts.format
   });
 
   debug('Options: %j', opts);
 
-  opts.convertFn = cachify.cachify;
+  opts.convertFn = store.cachify;
 
   return opts;
 }
 
 function plugin(opts = {}) {
-  opts = init(opts);
-  const replacementFn = cachifyUrl.bind(null, opts);
+  let replacementFn;
   return {
     postcssPlugin: 'postcss-cachify',
+    async Once() {
+      const options = await init(opts);
+      replacementFn = cachifyUrl.bind(null, options);
+    },
     Declaration(decl) {
       if (decl.value.includes('url(')) {
         decl.value = decl.value.replace(/url\((['"]?)(.+?)['"]?\)/gi, replacementFn);
