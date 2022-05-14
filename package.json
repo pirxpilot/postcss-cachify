@@ -21,15 +21,11 @@
   },
   "devDependencies": {
     "chai": "~4",
-    "gulp": "~4",
-    "gulp-jshint": "~2",
-    "gulp-mocha": "~6",
     "jshint": "~2",
-    "jshint-stylish": "~2",
-    "mocha": "~5"
+    "mocha": "~10"
   },
   "scripts": {
-    "test": "gulp"
+    "test": "make"
   },
   "files": [
     "index.js",
