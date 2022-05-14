@@ -13,6 +13,8 @@ function loadCss(name) {
     return fs.readFileSync(resolve(__dirname, name), 'utf8');
 }
 
+/* global describe, it */
+
 describe('postcss-cachify', function () {
 
     it('leave non urls untouched', function () {

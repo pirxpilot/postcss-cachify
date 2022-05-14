@@ -1,7 +1,6 @@
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][build-image]][build-url]
 [![Dependency Status][deps-image]][deps-url]
-[![Dev Dependency Status][deps-dev-image]][deps-dev-url]
 
 # PostCSS Cachify
 
@@ -49,11 +48,8 @@ See [PostCSS] docs for examples for your environment.
 [npm-image]: https://img.shields.io/npm/v/postcss-cachify.svg
 [npm-url]: https://npmjs.org/package/postcss-cachify
 
-[travis-url]: https://travis-ci.org/pirxpilot/postcss-cachify
-[travis-image]: https://img.shields.io/travis/pirxpilot/postcss-cachify.svg
-
-[deps-image]: https://img.shields.io/david/pirxpilot/postcss-cachify.svg
-[deps-url]: https://david-dm.org/pirxpilot/postcss-cachify
-
-[deps-dev-image]: https://img.shields.io/david/dev/pirxpilot/postcss-cachify.svg
-[deps-dev-url]: https://david-dm.org/pirxpilot/postcss-cachify?type=dev
+[build-url]: https://github.com/pirxpilot/postcss-cachify/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/workflow/status/pirxpilot/postcss-cachify/check
+ 
+[deps-image]: https://img.shields.io/librariesio/release/npm/postcss-cachify
+[deps-url]: https://libraries.io/npm/postcss-cachify
