@@ -1,0 +1,21 @@
+{
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "forin": true,
+  "latedef": "nofunc",
+  "loopfunc": false,
+  "noarg": true,
+  "nonbsp": true,
+  "nonew": true,
+  "notypeof": true,
+  "undef": true,
+  "unused": true,
+
+  "laxbreak": true,
+
+  "browserify": true,
+
+  "esversion": 10
+}
