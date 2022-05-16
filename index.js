@@ -1,44 +1,48 @@
-var cachify = require('connect-cachify-static');
-var path = require('path');
-var debug = require('debug')('postcss:cachify');
-var postcss = require('postcss');
+const { init: makeCachify } = require('connect-cachify-static');
+const path = require('path');
+const debug = require('debug')('postcss:cachify');
 
-var cachifyUrl = require('./lib/cachify');
+const cachifyUrl = require('./lib/cachify');
 
-module.exports = postcss.plugin('postcss-cachify', postcssCachify);
+module.exports = plugin;
 
-function init(opts) {
-    opts.baseUrl = opts.baseUrl || '/';
-    opts.basePath = opts.basePath ?
-        path.resolve(opts.basePath) :
-        process.cwd();
+async function init(opts) {
+  opts.baseUrl = opts.baseUrl || '/';
+  opts.basePath = opts.basePath ?
+  path.resolve(opts.basePath) :
+    process.cwd();
 
-    if (opts.baseUrl[opts.baseUrl.length - 1] !== '/') {
-        opts.baseUrl += '/';
+  if (opts.baseUrl[opts.baseUrl.length - 1] !== '/') {
+    opts.baseUrl += '/';
+  }
+
+  const store = await makeCachify(opts.basePath, {
+    match: opts.match,
+    format: opts.format
+  });
+
+  debug('Options: %j', opts);
+
+  opts.convertFn = store.cachify;
+
+  return opts;
+}
+
+function plugin(opts = {}) {
+  let replacementFn;
+  return {
+    postcssPlugin: 'postcss-cachify',
+    async Once() {
+      const options = await init(opts);
+      replacementFn = cachifyUrl.bind(null, options);
+    },
+    Declaration(decl) {
+      if (decl.value.includes('url(')) {
+        decl.value = decl.value.replace(/url\((['"]?)(.+?)['"]?\)/gi, replacementFn);
+      }
     }
-
-    cachify.init(opts.basePath, {
-        match: opts.match,
-        format: opts.format
-    });
-
-    debug('Options: %j', opts);
-
-    opts.convertFn = cachify.cachify;
-
-    return opts;
+  };
 }
 
-function postcssCachify (opts) {
-    var options;
-
-    return function (css) {
-        if (!options) {
-            options = init(opts || {});
-        }
-        css.replaceValues(/url\((['"]?)(.+?)['"]?\)/gi, {
-            fast: 'url('
-        }, cachifyUrl.bind(null, options));
-    };
-}
+plugin.postcss = true;
 

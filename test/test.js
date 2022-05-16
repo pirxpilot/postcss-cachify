@@ -1,34 +1,37 @@
-var fs  = require('fs');
-var resolve  = require('path').resolve;
-var postcss = require('postcss');
-var expect  = require('chai').expect;
+const { readFile } = require('fs').promises;
+const { resolve } = require('path');
+const postcss = require('postcss');
+const { expect } = require('chai');
 
-var plugin = require('../');
+const plugin = require('../');
 
-var test = function (input, output, opts) {
-    expect(postcss(plugin(opts)).process(input).css).to.eql(output);
-};
+async function process(input, opts) {
+  const processor = postcss(plugin(opts));
+  const { css } = await processor.process(input, { from: undefined });
+  return css;
+}
 
 function loadCss(name) {
-    return fs.readFileSync(resolve(__dirname, name), 'utf8');
+  return readFile(resolve(__dirname, name), 'utf8');
 }
 
 /* global describe, it */
 
 describe('postcss-cachify', function () {
 
-    it('leave non urls untouched', function () {
-        test('a{ }', 'a{ }', {
-            basePath: __dirname + '/fixtures'
-        });
+  it('leave non urls untouched', async function () {
+    const css = await process('a{ }', {
+      basePath: `${__dirname}/fixtures`
     });
+    expect(css).to.eql('a{ }');
+  });
 
-    it('process and fix URL declarations', function () {
-        var pre = loadCss('fixtures/pre.css');
-        var post = loadCss('fixtures/post.css');
-        test(pre, post, {
-            basePath: __dirname + '/fixtures'
-        });
+  it('process and fix URL declarations', async function () {
+    const [pre, post] = await Promise.all(['fixtures/pre.css', 'fixtures/post.css'].map(loadCss));
+    const css = await process(pre, {
+      basePath: `${__dirname}/fixtures`
     });
+    expect(css).to.eql(post);
+  });
 
 });
