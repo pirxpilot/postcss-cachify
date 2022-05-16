@@ -1,4 +1,12 @@
 
+3.0.0 / 2022-05-16
+==================
+
+ * use async version of cachify-static middleware
+ * use new postcss plugins API
+ * modernize code
+ * update postcss to ~8
+
 2.0.0 / 2022-05-14
 ==================
 
