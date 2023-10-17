@@ -45,11 +45,11 @@ See [PostCSS] docs for examples for your environment.
 [PostCSS]: https://github.com/postcss/postcss
 [connect-cachify-static]: https://github.com/pirxpilot/connect-cachify-static
 
-[npm-image]: https://img.shields.io/npm/v/postcss-cachify.svg
+[npm-image]: https://img.shields.io/npm/v/postcss-cachify
 [npm-url]: https://npmjs.org/package/postcss-cachify
 
 [build-url]: https://github.com/pirxpilot/postcss-cachify/actions/workflows/check.yaml
-[build-image]: https://img.shields.io/github/workflow/status/pirxpilot/postcss-cachify/check
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/postcss-cachify/check.yaml?branch=main
  
 [deps-image]: https://img.shields.io/librariesio/release/npm/postcss-cachify
 [deps-url]: https://libraries.io/npm/postcss-cachify
