@@ -1,7 +1,7 @@
+const { describe, it } = require('node:test');
 const { readFile } = require('fs').promises;
 const { resolve } = require('path');
 const postcss = require('postcss');
-const { expect } = require('chai');
 
 const plugin = require('../');
 
@@ -19,19 +19,19 @@ function loadCss(name) {
 
 describe('postcss-cachify', function () {
 
-  it('leave non urls untouched', async function () {
+  it('leave non urls untouched', async function (t) {
     const css = await process('a{ }', {
       basePath: `${__dirname}/fixtures`
     });
-    expect(css).to.eql('a{ }');
+    t.assert.equal(css, 'a{ }');
   });
 
-  it('process and fix URL declarations', async function () {
+  it('process and fix URL declarations', async function (t) {
     const [pre, post] = await Promise.all(['fixtures/pre.css', 'fixtures/post.css'].map(loadCss));
     const css = await process(pre, {
       basePath: `${__dirname}/fixtures`
     });
-    expect(css).to.eql(post);
+    t.assert.equal(css, post);
   });
 
 });
