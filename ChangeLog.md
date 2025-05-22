@@ -1,4 +1,11 @@
 
+5.0.0 / 2025-05-22
+==================
+
+ * use `biome` as a linter and formatter
+ * use `node:test` instead of `mocha`
+ * update github actions
+
 4.0.0 / 2023-10-17
 ==================
 
