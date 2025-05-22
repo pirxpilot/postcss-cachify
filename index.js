@@ -1,5 +1,5 @@
 const { init: makeCachify } = require('connect-cachify-static');
-const path = require('path');
+const path = require('node:path');
 const debug = require('debug')('postcss:cachify');
 
 const cachifyUrl = require('./lib/cachify');
@@ -7,12 +7,10 @@ const cachifyUrl = require('./lib/cachify');
 module.exports = plugin;
 
 async function init(opts) {
-  opts.baseUrl = opts.baseUrl || '/';
-  opts.basePath = opts.basePath ?
-  path.resolve(opts.basePath) :
-    process.cwd();
+  opts.baseUrl ??= '/';
+  opts.basePath = opts.basePath ? path.resolve(opts.basePath) : process.cwd();
 
-  if (opts.baseUrl[opts.baseUrl.length - 1] !== '/') {
+  if (opts.baseUrl.at(-1) !== '/') {
     opts.baseUrl += '/';
   }
 
@@ -45,4 +43,3 @@ function plugin(opts = {}) {
 }
 
 plugin.postcss = true;
-
