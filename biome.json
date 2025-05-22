@@ -8,7 +8,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["package.json"]
+    "ignore": ["package.json", "test/fixtures"]
   },
   "formatter": {
     "enabled": true,
@@ -29,21 +29,6 @@
       "correctness": {
         "noUndeclaredVariables": "error",
         "noUnusedVariables": "error"
-      },
-      "complexity": {
-        "noForEach": "off",
-        "useArrowFunction": "off",
-        "useLiteralKeys": "off"
-      },
-      "style": {
-        "noParameterAssign": "off",
-        "useTemplate": "off"
-      },
-      "performance": {
-        "noDelete": "off"
-      },
-      "suspicious": {
-        "noAssignInExpressions": "off"
       }
     }
   }
