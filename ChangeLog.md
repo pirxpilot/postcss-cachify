@@ -1,4 +1,11 @@
 
+5.0.1 / 2026-01-31
+==================
+
+ * update github actions
+ * upgrade `connect-cachify-static` to ~5
+ * upgrade `biome` to 2.3.13
+
 5.0.0 / 2025-05-22
 ==================
 
