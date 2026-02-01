@@ -15,7 +15,7 @@
     "url": "https://github.com/pirxpilot/postcss-cachify.git"
   },
   "dependencies": {
-    "connect-cachify-static": "~4.0.0",
+    "connect-cachify-static": "~5",
     "debug": "~4"
   },
   "peerDependencies": {
