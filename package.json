@@ -15,14 +15,14 @@
     "url": "https://github.com/pirxpilot/postcss-cachify.git"
   },
   "dependencies": {
-    "connect-cachify-static": "~4.0.0",
-    "debug": "~3 || ~4"
+    "connect-cachify-static": "~5",
+    "debug": "~4"
   },
   "peerDependencies": {
     "postcss": "~8"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "2.3.13",
     "postcss": "~8"
   },
   "scripts": {

@@ -1,14 +1,23 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": true
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "vcs": {
+    "enabled": true,
+    "clientKind": "git",
     "useIgnoreFile": true
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["package.json", "test/fixtures"]
+    "includes": [
+      "**",
+      "!test/fixtures"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -22,13 +31,41 @@
       "arrowParentheses": "asNeeded"
     }
   },
+  "json": {
+    "formatter": {
+      "expand": "always"
+    }
+  },
   "linter": {
     "enabled": true,
+    "domains": {
+      "project": "recommended"
+    },
     "rules": {
       "recommended": true,
       "correctness": {
+        "noUndeclaredDependencies": "error",
         "noUndeclaredVariables": "error",
-        "noUnusedVariables": "error"
+        "noUnusedVariables": "error",
+        "useImportExtensions": "error",
+        "useJsonImportAttributes": "error"
+      },
+      "complexity": {
+        "noForEach": "off"
+      },
+      "style": {
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "useBlockStatements": "error",
+        "useDefaultParameterLast": "error",
+        "useNumberNamespace": "error",
+        "useSingleVarDeclarator": "error"
+      },
+      "performance": {
+        "noDelete": "off"
+      },
+      "suspicious": {
+        "noAssignInExpressions": "off"
       }
     }
   }
