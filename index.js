@@ -2,7 +2,7 @@ const { init: makeCachify } = require('connect-cachify-static');
 const path = require('node:path');
 const debug = require('debug')('postcss:cachify');
 
-const cachifyUrl = require('./lib/cachify');
+const cachifyUrl = require('./lib/cachify.js');
 
 module.exports = plugin;
 

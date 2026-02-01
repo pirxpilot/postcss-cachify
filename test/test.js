@@ -3,7 +3,7 @@ const { readFile } = require('node:fs').promises;
 const { resolve } = require('node:path');
 const postcss = require('postcss');
 
-const plugin = require('../');
+const plugin = require('../index.js');
 
 async function process(input, opts) {
   const processor = postcss(plugin(opts));
